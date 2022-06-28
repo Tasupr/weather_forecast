@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/2056ad47c5.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+      
+    <div class="mainSection">
+     <!-- current city unit-->
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <form class="card" style="width: 18rem">
+              <div class="card-body">
+                <h2 class="card-title" id="city">Vinnitsa</h2> <h4 id="date"></h4>
+                <h6 class="card-subtitle mb-2 text-muted"></h6>
+                <br class="card-text">
+                  <ul>
+              <li> <span class="temperature" id="temperature"></span> <span class="units">°C</span></li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+              <li id="description"></li>
+            </ul>
+                </div>
+            </form>
+            </div> 
+        
+          <!-- change city unit -->
+                   
+          <div class="col">
+           <form class="form-inline" id="search-form">
+               
+                <div class="form-group mx-sm-3 mb-2">
+                    <input
+                    type="search"
+                    class="form-control"
+                    autofocus="on"
+                    autocomplete="off"
+                    id="city-input"
+                    placeholder="Enter the city"
+                  />
+                </div>
+                 
+               <div class="container">
+                    <div class="row">
+                        <div class="col enterCity">
+                        
+                      <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+                    </div>
+                
+                    <div class="col enterCity">
+                        
+                      <input
+                type="submit"
+                value="Current"
+                class="form-control btn btn-primary shadow-sm current"
+                id="current-location-button"
+              />
+                    </div>
+                    </div>
+                </div>
+                             
+            </form>
+           </div>
+        </div>
+   </div>
+      
+      <!-- week forecast -->
+      <div>
+        <h1 class="weekHead">Five days forecast</h1>
+      </div>
+      <!-- five days cards -->
+      <div class="container">
+  <div class="row">
+    <div class="col"><div class="card" style="width: 7rem;">
+  <div class="card-header">
+    Monday
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">T, *C</li>
+    <li class="list-group-item">+26/+17</li>
+    <li class="list-group-item"><img src="images/cloudy.jpg"> </li>
+  </ul>
+</div></div>
+    <div class="col"><div class="card" style="width: 7rem;">
+  <div class="card-header">
+   Tuesday
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">T, *C</li>
+    <li class="list-group-item">+20/+15</li>
+    <li class="list-group-item"><img src="images/light_cloud.jpg"></li>
+  </ul>
+</div></div>
+    <div class="col"><div class="card" style="width: 8rem;">
+  <div class="card-header">
+    Wednesday
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">T, *C</li>
+    <li class="list-group-item">+16/+10</li>
+    <li class="list-group-item"><img src="images/rain.jpg"></li>
+  </ul>
+</div></div>
+    <div class="col"><div class="card" style="width: 7rem;">
+  <div class="card-header">
+   Thursday
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">T, *C</li>
+    <li class="list-group-item">+20/+17</li>
+    <li class="list-group-item"><img src="images/cloudy.jpg"></li>
+  </ul>
+</div></div>
+    <div class="col"><div class="card" style="width: 7rem;">
+  <div class="card-header">
+    Friday
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">T, *C</li>
+    <li class="list-group-item">+25/+19</li>
+    <li class="list-group-item"><img src="images/deep_cloud.jpg"></li>
+  </ul>
+</div></div>
+  </div>
+ 
+    </div>
+</br>
+    <footer class="footer">
+        Design by Tanya Suprunovich
+    </footer>
+</div>
+<script src="src/index.js"></script>
+  </body>
+</html>
+

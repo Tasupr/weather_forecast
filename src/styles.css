@@ -1,0 +1,29 @@
+h1 {
+  color: blue;
+}
+.mainSection {
+  display: block;
+  margin: 0 auto;
+  width: 700px;
+  background-color: azure;
+  padding-top: 10px;
+}
+.weekHead {
+  text-align: center;
+}
+.enterCity {
+  text-align: center;
+}
+.footer {
+  text-align: center;
+}
+li {
+  text-align: left;
+  text-decoration: none;
+   list-style: none;
+}
+.current
+{
+  background-color: green;
+} 
+
