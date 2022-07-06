@@ -26,4 +26,19 @@ li {
 {
   background-color: green;
 } 
+.temperature {
+font-size: 60px;
+padding-left: 0px;
+vertical-align: top;
+}
 
+.picture {
+    padding-bottom: 35px;
+    padding-left: 0px;
+}
+.pictureBlock{
+    padding-left: 0px;
+}
+.units{
+    vertical-align: top;
+   }

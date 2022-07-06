@@ -22,17 +22,22 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <form class="card" style="width: 18rem">
+            <form class="card" style="width: 26rem">
               <div class="card-body">
                 <h2 class="card-title" id="city">Vinnitsa</h2> <h4 id="date"></h4>
                 <h6 class="card-subtitle mb-2 text-muted"></h6>
                 <br class="card-text">
-                  <ul>
-              <li> <span class="temperature" id="temperature"></span> <span class="units">°C</span></li>
+              <div class="row">
+                <div class="col-6 pictureBlock">
+                 <img id="icon" class="picture" src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
+               <span class="temperature" id="temperature"></span> <span class="units">°C</span>  
+            </div>
+            <div class="col-6">
+            <ul>
               <li>Humidity: <span id="humidity"></span>%</li>
               <li>Wind: <span id="wind"></span> km/h</li>
               <li id="description"></li>
-            </ul>
+            </ul></div></div>
                 </div>
             </form>
             </div> 
