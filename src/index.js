@@ -22,6 +22,40 @@ function formatDate(date) {
 
     return `${day} ${hours}:${minutes}`;
 }
+// five day forecast function
+
+
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+    let forecastHTML = `<div class="row">`;
+    days.forEach(function (day) {
+        forecastHTML =
+            forecastHTML + `
+<div class = "col-2">
+    <div class = "weather-forecast-date">
+    <div class = "card oneday" style = "width: 7rem;">
+    <div class = "card-header weather-forecast-date"> ${day} </div>
+      <ul class = "list-group list-group-flush">
+    <li class = "list-group-item oneday"> Tmax / Tmin, °C </li>
+      <li class = "list-group-item oneday"> <div class = "weather-forecast-temperatures">
+    <span class = "weather-forecast-temperature-max"> 18° </span>
+     <span class = "weather-forecast-temperature-min"> 12° </span>
+       </div> </li>
+    <li class = "list-group-item oneday">
+    <img src = "http://openweathermap.org/img/wn/50d@2x.png"
+alt = "" width = "42" /> </li> </ul>
+    </div> </div> </div> `;
+    });
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    console.log(forecastHTML);
+}
+
+// end of five day forecast function
 
 
 
@@ -63,6 +97,8 @@ function handleSubmit(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 searchCity("New York");
+displayForecast();
+
 
 function searchLocation(position) {
     let apiKey = "38809c2b31beee304a0444968f76b6cc";
