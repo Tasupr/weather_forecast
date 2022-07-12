@@ -57,7 +57,12 @@ alt = "" width = "42" /> </li> </ul>
 
 // end of five day forecast function
 
-
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "38809c2b31beee304a0444968f76b6cc";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
 
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
@@ -81,6 +86,7 @@ function displayWeatherCondition(response) {
         response.data.weather[0].main;
     let iconElement = document.querySelector("#icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -102,9 +108,8 @@ displayForecast();
 
 function searchLocation(position) {
     let apiKey = "38809c2b31beee304a0444968f76b6cc";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
-    position.coords.latitude
-  }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude
+            }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(displayWeatherCondition);
 }
@@ -145,4 +150,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature)
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
