@@ -22,43 +22,59 @@ function formatDate(date) {
 
     return `${day} ${hours}:${minutes}`;
 }
+
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    return days[day];
+}
+
+
 // five day forecast function
 
 
-function displayForecast() {
+function displayForecast(response) {
+    let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
 
-    let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-
-    let forecastHTML = `<div class="row">`;
-    days.forEach(function (day) {
-        forecastHTML =
-            forecastHTML + `
-<div class = "col-2">
+    let forecastHTML = `<div class="row colums">`;
+    forecast.forEach(function (forecastDay, index) {
+        if (index < 6) {
+            forecastHTML =
+                forecastHTML + `
+    <div class = "col-2">
     <div class = "weather-forecast-date">
     <div class = "card oneday" style = "width: 7rem;">
-    <div class = "card-header weather-forecast-date"> ${day} </div>
+    <div class = "card-header weather-forecast-date"> ${formatDay(forecastDay.dt)} </div>
       <ul class = "list-group list-group-flush">
     <li class = "list-group-item oneday"> Tmax / Tmin, °C </li>
       <li class = "list-group-item oneday"> <div class = "weather-forecast-temperatures">
-    <span class = "weather-forecast-temperature-max"> 18° </span>
-     <span class = "weather-forecast-temperature-min"> 12° </span>
+    <span class = "weather-forecast-temperature-max" > ${Math.round(
+                    forecastDay.temp.max
+                )
+                }° </span>
+     <span class = "weather-forecast-temperature-min" > ${Math.round(
+                    forecastDay.temp.min
+                )
+                }° </span>
        </div> </li>
     <li class = "list-group-item oneday">
-    <img src = "http://openweathermap.org/img/wn/50d@2x.png"
+    <img src = "http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png "
 alt = "" width = "42" /> </li> </ul>
     </div> </div> </div> `;
+        }
     });
 
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
-    console.log(forecastHTML);
 }
 
 // end of five day forecast function
 
 function getForecast(coordinates) {
-    console.log(coordinates);
+
     let apiKey = "38809c2b31beee304a0444968f76b6cc";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayForecast);
@@ -103,7 +119,7 @@ function handleSubmit(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 searchCity("New York");
-displayForecast();
+
 
 
 function searchLocation(position) {
@@ -151,3 +167,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+displayForecast();

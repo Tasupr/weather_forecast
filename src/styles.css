@@ -4,7 +4,7 @@ h1 {
 .mainSection {
   display: block;
   margin: 0 auto;
-  width: 700px;
+  width: 800px;
   background-color: azure;
   padding-top: 10px;
 }
@@ -61,7 +61,7 @@ li {
        .oneday {
            text-align: center;
            color: black;
-       }
+            }
 
        
 .weather-forecast {
@@ -73,28 +73,28 @@ li {
 
 .weather-forecast-date {
   font-size: 16px;
-  opacity: 0.5;
-  padding-left: 15px;
-}
+  
 
-.weather-forecast-temperature-min {
-  opacity: 0.5;
 }
-
-.weather-forecast-temperatures {
-  font-size: 13px;
-}
-
 
 .weather-forecast-date {
-  font-size: 16px;
-  opacity: 0.5;
+  font-size: 18px;
+  
 }
 
 .weather-forecast-temperature-min {
-  opacity: 0.5;
+  
 }
 
 .weather-forecast-temperatures {
-  font-size: 13px;
+  font-size: 15px;
+}
+.colums {
+  margin: 0 auto;
+  margin-left: 5px;
+}
+
+.card-header {
+  font-weight: bold;
+  color: blue;
 }
